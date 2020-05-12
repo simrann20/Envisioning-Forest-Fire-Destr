@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html >
+ <!--From https://codepen.io/frytyler/pen/EGdtg-->
+ <head>
+  <meta charset="UTF-8">
+  <title>Forest Fire area  Prediction</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Oleo+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Aclonica&display=swap" rel="stylesheet">
+
+  <style>
+    ::placeholder{
+      color:white;
+      font-size:15px;
+    }
+  </style>
+ </head>
+
+ <body>
+   <h1 style="font-family: 'Oleo Script', cursive;font-size:60px;"> FOREST FIRE AREA PREDICTION </h1><br><br>
+   <div class = "login-cont" style="width:1200px;margin-left:200px;">
+    <div class="login" id="1">
+       <!-- Main Input For Receiving Query to our ML -->
+    {% if button_show == 'Yes' %}
+      <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" class="btn btn-outline-dark" style="width:1200px;font-size:20px;" value="Predict Results"></input>
+      </form>
+    {% else %}
+      <h1>{{ output }}</h1>
+    {% endif %}  
+    </div>
+
+   </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
